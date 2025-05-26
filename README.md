@@ -12,7 +12,7 @@ gem install yield-sdk
 require "yield/sdk"
 
 # for security, never commit the actual key in your code
-client = Yield::SDK::Client(ENV["YIELD_API_KEY"])
+client = Yield::SDK::Client.new(ENV["YIELD_API_KEY"])
 
 # fetch an existing order
 order = client.order.fetch("ord_...")
