@@ -1,0 +1,11 @@
+module Yield
+  module SDK
+    module Customer
+      class Client
+        @base: BaseClient
+        def initialize: (BaseClient) -> void
+        def list: (?customer_list_params?) -> Page[CustomerRow]
+      end
+    end
+  end
+end

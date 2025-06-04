@@ -1,0 +1,23 @@
+# Ideally we should use RBS collections, but it's very incomplete and full of untyped:
+# https://github.com/ruby/gem_rbs_collection/blob/main/gems/faraday/2.5/faraday.rbs
+# Even the yard docs offer better specs:
+# https://gemdocs.org/gems/faraday/2.13.1/
+# We could contribute back, but it's much easier to scope this based on our actual usage.
+
+class Faraday::Connection
+  def run_request: (:get | :post method, String url, String? body, Hash[String, String]? headers) -> Faraday::Response
+end
+
+class Faraday::Response
+  attr_reader status: Integer
+  attr_reader body: String
+  attr_reader headers: Hash[String, String]
+
+  def success?: () -> bool
+  def []: (String) -> String?
+end
+
+module Faraday
+  def self.new: (?String) -> Faraday::Connection
+    | (?String) { (Faraday::Connection) -> void } -> Faraday::Connection
+end

@@ -2,13 +2,13 @@
 
 module Yield
   module SDK
-    VERSION = "0.5.1"
+    VERSION = "0.7.0"
 
     module_function
 
     def client_version
-      runtime_major_version = RUBY_ENGINE_VERSION.match(/^\d+(\.\d+)?/)[0]
-      runtime_version = "#{RUBY_ENGINE} #{runtime_major_version}"
+      m = RUBY_ENGINE_VERSION.match(/^\d+(\.\d+)?/)
+      runtime_version = m.nil? ? RUBY_ENGINE : "#{RUBY_ENGINE} #{m[0]}"
 
       "Yield-SDK-Ruby/#{VERSION} (#{runtime_version})"
     end

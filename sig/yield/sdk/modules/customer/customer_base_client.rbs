@@ -1,0 +1,11 @@
+module Yield
+  module SDK
+    module Customer
+      class BaseClient
+        @api: API::Client
+        def initialize: (API::Client) -> void
+        def list: (?customer_list_params?) -> API::Result[Page[CustomerRow]]
+      end
+    end
+  end
+end

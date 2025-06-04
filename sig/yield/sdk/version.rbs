@@ -1,0 +1,8 @@
+module Yield
+  module SDK
+    VERSION: String
+
+    def client_version: -> String
+    def self.client_version: -> String # module_function
+  end
+end

@@ -1,0 +1,26 @@
+module Yield
+  module SDK
+    module API
+      class Client
+        def initialize: (String api_key, ?base_url: String?, ?conn: Faraday::Connection?) -> void
+
+        def self.extract_api_key: (String) -> [String, String]
+        def self.build_signature: (String hmac_key, String timestamp, String path, ?String? body) -> String
+        def self.process_response: [R] (Faraday::Response response) { (Hash[Symbol, Object]) -> R } -> Result[R]
+
+        def run_query: (String, ?Hash[Symbol, String | Integer | nil]?) -> Faraday::Response
+        def run_command: (String, Object) -> Faraday::Response
+
+        private
+
+        @base_url: String
+        @api_key_token: String
+        @api_key_hmac_key: String
+        @conn: Faraday::Connection
+        @client_version: String
+
+        def call_endpoint: (:get | :post, String, Object?) -> Faraday::Response
+      end
+    end
+  end
+end

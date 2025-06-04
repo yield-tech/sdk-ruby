@@ -1,0 +1,16 @@
+module Yield
+  module SDK
+    module Customer
+      type customer_list_params = {
+        ?limit: Integer?,
+        ?after: cursor_like?,
+        ?customer_code: String?,
+        ?extra_system_id: String?,
+      }
+
+      class CustomerListPayload
+        def self.build: (customer_list_params) -> Hash[Symbol, String | Integer | nil]
+      end
+    end
+  end
+end

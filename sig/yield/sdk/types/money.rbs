@@ -1,0 +1,12 @@
+module Yield
+  module SDK
+    class Money
+      attr_reader currency_code: Symbol
+      attr_reader value: BigDecimal
+
+      def initialize: (Symbol, BigDecimal) -> void
+        | (currency_code: Symbol, value: BigDecimal) -> void
+      def self.from_payload: (String) -> Money
+    end
+  end
+end

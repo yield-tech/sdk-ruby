@@ -1,0 +1,10 @@
+module Yield
+  module SDK
+    module Order
+      module OrderStatus
+        type t = :pending | :confirmed | :fulfilled | :cancelled
+        ALL: Array[t]
+      end
+    end
+  end
+end

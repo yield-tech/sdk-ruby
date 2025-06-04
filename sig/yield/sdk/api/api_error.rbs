@@ -1,0 +1,13 @@
+module Yield
+  module SDK
+    module API
+      class Error < StandardError
+        attr_reader status_code: Integer
+        attr_reader request_id: String?
+        attr_reader details: ErrorDetails
+
+        def initialize: (Integer, String?, ErrorDetails) -> void
+      end
+    end
+  end
+end

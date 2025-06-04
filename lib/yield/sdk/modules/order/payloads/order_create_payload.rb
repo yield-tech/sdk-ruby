@@ -10,7 +10,7 @@ module Yield
           {
             customer_id: params[:customer_id],
             total_amount: MoneyPayload.build(params[:total_amount]),
-            note: params[:note]
+            note: params[:note],
           }
         end
       end

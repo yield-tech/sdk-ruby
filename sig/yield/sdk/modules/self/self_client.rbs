@@ -1,0 +1,11 @@
+module Yield
+  module SDK
+    module Self
+      class Client
+        @base: BaseClient
+        def initialize: (BaseClient) -> void
+        def info: -> SelfInfo
+      end
+    end
+  end
+end

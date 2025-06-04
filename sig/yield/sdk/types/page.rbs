@@ -1,0 +1,20 @@
+module Yield
+  module SDK
+    class Page[T]
+      include Enumerable[T]
+
+      attr_accessor has_more: bool
+      @items: Array[T]
+
+      def initialize: (items: Array[T], has_more: bool) -> void
+      def self.build_with: [E] { (Hash[Symbol, Object]) -> E } -> (^(Hash[Symbol, Object]) -> Page[E])
+
+      def to_a: -> Array[T]
+      def size: -> Integer
+      def length: -> Integer
+      def []: (Integer) -> T?
+      def last: -> T?
+      def each: { (T) -> void } -> Array[T]
+    end
+  end
+end

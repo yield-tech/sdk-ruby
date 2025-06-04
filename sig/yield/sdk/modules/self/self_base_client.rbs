@@ -1,0 +1,11 @@
+module Yield
+  module SDK
+    module Self
+      class BaseClient
+        @api: API::Client
+        def initialize: (API::Client) -> void
+        def info: -> API::Result[SelfInfo]
+      end
+    end
+  end
+end

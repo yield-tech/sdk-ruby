@@ -1,0 +1,15 @@
+module Yield
+  module SDK
+    module Order
+      class OrderCustomerInfo
+        attr_reader id: String
+        attr_reader registered_name: String
+        attr_reader trade_name: String?
+        attr_reader customer_code: String?
+
+        def initialize: (id: String, registered_name: String, trade_name: String?, customer_code: String?) -> void
+        def self.from_payload: (Hash[Symbol, Object]) -> OrderCustomerInfo
+      end
+    end
+  end
+end

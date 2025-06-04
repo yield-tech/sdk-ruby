@@ -1,0 +1,12 @@
+module Yield
+  module SDK
+    module Order
+      class BaseClient
+        @api: API::Client
+        def initialize: (API::Client) -> void
+        def fetch: (String) -> API::Result[Order]
+        def create: (order_create_params) -> API::Result[Order]
+      end
+    end
+  end
+end

@@ -1,0 +1,19 @@
+module Yield
+  module SDK
+    module API
+      class Result[T]
+        attr_reader status_code: Integer
+        attr_reader request_id: String?
+        attr_reader data: T
+        attr_reader error: ErrorDetails?
+
+        def initialize: (status_code: Integer, request_id: String?, data: T, error: ErrorDetails?) -> void
+
+        def self.success: [D] (Integer, String?, D) -> Result[D]
+        def self.failure: (Integer, String?, String, Hash[String, Object]?, StandardError?) -> Result[untyped]
+
+        def ok?: -> bool
+      end
+    end
+  end
+end

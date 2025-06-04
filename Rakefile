@@ -9,6 +9,15 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/test_*.rb"]
 end
 
-require "standard/rake"
+require "rubocop/rake_task"
 
-task default: %i[test standard]
+RuboCop::RakeTask.new
+
+require "steep/rake_task"
+
+Steep::RakeTask.new do |t|
+  t.check.severity_level = :error
+  t.watch.verbose
+end
+
+task default: %i[test rubocop steep]

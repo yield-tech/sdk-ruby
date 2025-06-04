@@ -1,0 +1,26 @@
+module Yield
+  module SDK
+    module TypeUtils
+      def expect_boolean: (Object) -> bool
+      def expect_integer: (Object) -> Integer
+      def expect_string: (Object) -> String
+      def expect_date: (Object) -> Date
+      def expect_time: (Object) -> Time
+      def expect_variant: [T < Symbol] (Array[T], Object) -> T
+      def expect_record: (Object) -> Hash[Symbol, Object]
+      def expect_list: (Object) -> Array[Object]
+      def expect_record_list: (Object) -> Array[Hash[Symbol, Object]]
+
+      # module_function
+      def self.expect_boolean: (Object) -> bool
+      def self.expect_integer: (Object) -> Integer
+      def self.expect_string: (Object) -> String
+      def self.expect_date: (Object) -> Date
+      def self.expect_time: (Object) -> Time
+      def self.expect_variant: [T < Symbol] (Array[T], Object) -> T
+      def self.expect_record: (Object) -> Hash[Symbol, Object]
+      def self.expect_list: (Object) -> Array[Object]
+      def self.expect_record_list: (Object) -> Array[Hash[Symbol, Object]]
+    end
+  end
+end

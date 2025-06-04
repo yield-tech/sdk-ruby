@@ -1,0 +1,14 @@
+module Yield
+  module SDK
+    module API
+      class ErrorDetails
+        attr_reader type: String
+        attr_reader body: Hash[String, Object]?
+        attr_reader exception: StandardError?
+
+        def initialize: (String, Hash[String, Object]?, StandardError?) -> void
+          | (type: String, body: Hash[String, Object]?, exception: StandardError?) -> void
+      end
+    end
+  end
+end

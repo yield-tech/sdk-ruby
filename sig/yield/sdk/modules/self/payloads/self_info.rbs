@@ -1,0 +1,14 @@
+module Yield
+  module SDK
+    module Self
+      class SelfInfo
+        attr_reader id: String
+        attr_reader name: String
+        attr_reader organization: SelfOrganizationInfo
+
+        def initialize: (id: String, name: String, organization: SelfOrganizationInfo) -> void
+        def self.from_payload: (Hash[Symbol, Object]) -> SelfInfo
+      end
+    end
+  end
+end

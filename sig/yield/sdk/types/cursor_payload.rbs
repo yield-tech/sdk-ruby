@@ -1,0 +1,14 @@
+module Yield
+  module SDK
+    # `& Object` is needed for the `is_a?` method
+    type cursor_like = String | (_EntityInterface & Object) | Page[_EntityInterface]
+
+    interface _EntityInterface
+      def id: -> String
+    end
+
+    class CursorPayload
+      def self.build: (cursor_like) -> String?
+    end
+  end
+end

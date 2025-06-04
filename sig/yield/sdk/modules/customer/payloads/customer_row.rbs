@@ -1,0 +1,16 @@
+module Yield
+  module SDK
+    module Customer
+      class CustomerRow
+        attr_reader id: String
+        attr_reader registered_name: String
+        attr_reader trade_name: String?
+        attr_reader customer_code: String?
+        attr_reader credit_line: CustomerCreditLineInfo?
+
+        def initialize: (id: String, registered_name: String, trade_name: String?, customer_code: String?, credit_line: CustomerCreditLineInfo?) -> void
+        def self.from_payload: (Hash[Symbol, Object]) -> CustomerRow
+      end
+    end
+  end
+end

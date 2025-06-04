@@ -1,0 +1,12 @@
+module Yield
+  module SDK
+    module Order
+      class Client
+        @base: BaseClient
+        def initialize: (BaseClient) -> void
+        def fetch: (String) -> Order
+        def create: (order_create_params) -> Order
+      end
+    end
+  end
+end

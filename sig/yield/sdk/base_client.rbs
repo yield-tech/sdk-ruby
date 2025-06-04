@@ -1,0 +1,13 @@
+module Yield
+  module SDK
+    class BaseClient
+      attr_reader api: API::Client
+
+      attr_reader customer: Customer::BaseClient
+      attr_reader order: Order::BaseClient
+      attr_reader self: Self::BaseClient
+
+      def initialize: (String api_key, ?base_url: String?, ?conn: Faraday::Connection?) -> void
+    end
+  end
+end

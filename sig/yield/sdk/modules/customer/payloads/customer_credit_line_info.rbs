@@ -1,0 +1,13 @@
+module Yield
+  module SDK
+    module Customer
+      class CustomerCreditLineInfo
+        attr_reader credit_limit: Money
+        attr_reader amount_available: Money
+
+        def initialize: (credit_limit: Money, amount_available: Money) -> void
+        def self.from_payload: (Hash[Symbol, Object]) -> CustomerCreditLineInfo
+      end
+    end
+  end
+end

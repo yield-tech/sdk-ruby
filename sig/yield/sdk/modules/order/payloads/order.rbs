@@ -1,0 +1,30 @@
+module Yield
+  module SDK
+    module Order
+      class Order
+        attr_reader id: String
+        attr_reader order_number: String
+        attr_reader status: OrderStatus::t
+        attr_reader customer: OrderCustomerInfo?
+        attr_reader date: Date
+        attr_reader total_amount: Money
+        attr_reader note: String?
+        attr_reader payment_link: String?
+        attr_reader creation_time: Time
+
+        def initialize: (
+          id: String,
+          order_number: String,
+          status: OrderStatus::t,
+          customer: OrderCustomerInfo?,
+          date: Date,
+          total_amount: Money,
+          note: String?,
+          payment_link: String?,
+          creation_time: Time,
+        ) -> void
+        def self.from_payload: (Hash[Symbol, Object]) -> Order
+      end
+    end
+  end
+end

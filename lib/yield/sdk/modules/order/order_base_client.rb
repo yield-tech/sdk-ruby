@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "uri"
+
 require_relative "../../api/api_client"
 require_relative "payloads/order"
 require_relative "payloads/order_create_payload"
@@ -13,7 +15,8 @@ module Yield
         end
 
         def fetch(id)
-          response = @api.run_query("/order/fetch/#{id}")
+          encoded_id = URI.encode_uri_component(id)
+          response = @api.run_query("/order/fetch/#{encoded_id}")
 
           API::Client.process_response(response, &Order.method(:from_payload))
         end

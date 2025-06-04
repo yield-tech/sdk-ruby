@@ -1,0 +1,15 @@
+module Yield
+  module SDK
+    # `& Object` is needed for the `is_a?` method
+    type money_like = String | [Symbol, BigDecimal] | (_MoneyInterface & Object)
+
+    interface _MoneyInterface
+      def currency_code: -> Symbol
+      def value: -> BigDecimal
+    end
+
+    class MoneyPayload
+      def self.build: (money_like) -> String
+    end
+  end
+end
